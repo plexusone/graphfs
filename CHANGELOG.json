@@ -6,34 +6,13 @@
   "commitConvention": "conventional",
   "releases": [
     {
-      "version": "v0.2.0",
-      "date": "2026-04-11",
-      "highlights": [
-        { "description": "Graph traversal algorithms (BFS, DFS, path finding) in new `query` package" },
-        { "description": "Graph analysis: hub detection, community detection (Louvain), diff comparison" }
-      ],
-      "added": [
-        { "description": "`query.Traverser` with BFS, DFS, and FindPath methods", "commit": "3661f45" },
-        { "description": "`query.Direction` enum: Outgoing, Incoming, Both", "commit": "3661f45" },
-        { "description": "`query.TraversalResult` with visited nodes, edges, depth tracking", "commit": "3661f45" },
-        { "description": "`analyze.FindHubs` to identify highly connected nodes", "commit": "3661f45" },
-        { "description": "`analyze.IsolatedNodes` to find weakly connected nodes", "commit": "3661f45" },
-        { "description": "`analyze.DetectCommunities` using Louvain algorithm", "commit": "3661f45" },
-        { "description": "`analyze.DiffGraphs` to compare graph snapshots", "commit": "3661f45" },
-        { "description": "`analyze.CohesionScore` for community density measurement", "commit": "3661f45" },
-        { "description": "`analyze.NodesByType` and `EdgesByType` grouping functions", "commit": "3661f45" },
-        { "description": "`analyze.EdgesByConfidence` for confidence-level grouping", "commit": "3661f45" }
-      ],
-      "dependencies": [
-        { "description": "Added gonum.org/v1/gonum v0.17.0 for Louvain algorithm", "commit": "3661f45" }
-      ]
-    },
-    {
       "version": "v0.1.0",
       "date": "2026-04-11",
       "highlights": [
         { "description": "Git-friendly graph database with one-file-per-entity storage for minimal diffs" },
-        { "description": "Edge confidence system supporting EXTRACTED, INFERRED, and AMBIGUOUS relationships" }
+        { "description": "Edge confidence system supporting EXTRACTED, INFERRED, and AMBIGUOUS relationships" },
+        { "description": "Graph traversal algorithms (BFS, DFS, path finding) in `query` package" },
+        { "description": "Graph analysis: hub detection, community detection (Louvain), diff comparison" }
       ],
       "added": [
         { "description": "`graph.Node` type with ID, Type, Label, and extensible Attrs map", "commit": "06f5b1f" },
@@ -53,11 +32,28 @@
         { "description": "`store.FSStore` for filesystem-backed persistence", "commit": "c3c727d" },
         { "description": "One-file-per-entity storage: `nodes/{id}.json` and `edges/{from}__{type}__{to}.json`", "commit": "c3c727d" },
         { "description": "Full CRUD operations: WriteNode, WriteEdge, GetNode, GetEdge, DeleteNode, DeleteEdge", "commit": "c3c727d" },
-        { "description": "Batch operations: ListNodes, ListEdges, LoadGraph, SaveGraph", "commit": "c3c727d" }
+        { "description": "Batch operations: ListNodes, ListEdges, LoadGraph, SaveGraph", "commit": "c3c727d" },
+        { "description": "`query.Traverser` with BFS, DFS, and FindPath methods", "commit": "3661f45" },
+        { "description": "`query.Direction` enum: Outgoing, Incoming, Both", "commit": "3661f45" },
+        { "description": "`query.TraversalResult` with visited nodes, edges, depth tracking", "commit": "3661f45" },
+        { "description": "`analyze.FindHubs` to identify highly connected nodes", "commit": "3661f45" },
+        { "description": "`analyze.IsolatedNodes` to find weakly connected nodes", "commit": "3661f45" },
+        { "description": "`analyze.DetectCommunities` using Louvain algorithm", "commit": "3661f45" },
+        { "description": "`analyze.DiffGraphs` to compare graph snapshots", "commit": "3661f45" },
+        { "description": "`analyze.CohesionScore` for community density measurement", "commit": "3661f45" },
+        { "description": "`analyze.NodesByType` and `EdgesByType` grouping functions", "commit": "3661f45" },
+        { "description": "`analyze.EdgesByConfidence` for confidence-level grouping", "commit": "3661f45" }
       ],
       "documentation": [
-        { "description": "CHANGELOG.md with v0.1.0 release notes", "commit": "dbcb8f6" },
+        { "description": "README with usage examples", "commit": "8372707" },
+        { "description": "MkDocs documentation site", "commit": "8372707" },
+        { "description": "API reference for all packages", "commit": "8372707" },
+        { "description": "CHANGELOG.md with release notes", "commit": "dbcb8f6" },
         { "description": "TASKS.md with phase-based development roadmap", "commit": "dbcb8f6" }
+      ],
+      "dependencies": [
+        { "description": "github.com/spf13/cobra v1.10.2 for CLI", "commit": "c3c727d" },
+        { "description": "gonum.org/v1/gonum v0.17.0 for Louvain algorithm", "commit": "3661f45" }
       ],
       "infrastructure": [
         { "description": "Go module definition (go 1.24)", "commit": "ca4c2fd" },
