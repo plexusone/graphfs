@@ -19,14 +19,14 @@ type Node struct {
 
 // NodeType constants for common node types.
 const (
-	NodeTypeFunction = "function"
-	NodeTypeMethod   = "method"
-	NodeTypeClass    = "class"
-	NodeTypeStruct   = "struct"
-	NodeTypeFile     = "file"
-	NodeTypePackage  = "package"
-	NodeTypeModule   = "module"
-	NodeTypeVariable = "variable"
-	NodeTypeConstant = "constant"
+	NodeTypeFunction  = "function"
+	NodeTypeMethod    = "method"
+	NodeTypeClass     = "class"
+	NodeTypeStruct    = "struct"
+	NodeTypeFile      = "file"
+	NodeTypePackage   = "package"
+	NodeTypeModule    = "module"
+	NodeTypeVariable  = "variable"
+	NodeTypeConstant  = "constant"
 	NodeTypeInterface = "interface"
 )

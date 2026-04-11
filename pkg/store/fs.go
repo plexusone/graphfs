@@ -40,7 +40,7 @@ func (s *FSStore) WriteNode(n *graph.Node) error {
 	if err != nil {
 		return fmt.Errorf("marshaling node %s: %w", n.ID, err)
 	}
-	return os.WriteFile(path, data, 0644)
+	return os.WriteFile(path, data, 0600)
 }
 
 // WriteEdge writes an edge to the filesystem.
@@ -50,7 +50,7 @@ func (s *FSStore) WriteEdge(e *graph.Edge) error {
 	if err != nil {
 		return fmt.Errorf("marshaling edge %s->%s: %w", e.From, e.To, err)
 	}
-	return os.WriteFile(path, data, 0644)
+	return os.WriteFile(path, data, 0600)
 }
 
 // GetNode retrieves a node by ID.
