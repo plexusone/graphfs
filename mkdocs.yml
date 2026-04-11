@@ -6,6 +6,7 @@ repo_name: plexusone/graphfs
 
 theme:
   name: material
+  custom_dir: docs/overrides
   palette:
     # Dark mode first (PlexusOne default)
     - scheme: slate
@@ -49,6 +50,7 @@ nav:
   - API Reference: api-reference.md
   - Releases:
       - Changelog: releases/changelog.md
+      - v0.1.0: releases/v0.1.0.md
 
 extra:
   social:
