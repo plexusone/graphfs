@@ -4,11 +4,11 @@ Git-friendly filesystem graph database with one-file-per-entity storage for mini
 
 ## Features
 
-- **One file per entity** - Nodes stored as `nodes/{id}.json`, edges as `edges/{from}__{type}__{to}.json`
-- **Deterministic JSON** - Sorted keys and consistent formatting for clean git diffs
-- **Confidence levels** - Support for EXTRACTED (AST), INFERRED (LLM), and AMBIGUOUS relationships
-- **Pluggable storage** - `Store` interface for custom backends
-- **Schema validation** - Validate nodes, edges, and referential integrity
+- 📄 **One file per entity** - Nodes stored as `nodes/{id}.json`, edges as `edges/{from}__{type}__{to}.json`
+- 🔒 **Deterministic JSON** - Sorted keys and consistent formatting for clean git diffs
+- 🎯 **Confidence levels** - Support for EXTRACTED (AST), INFERRED (LLM), and AMBIGUOUS relationships
+- 🔌 **Pluggable storage** - `Store` interface for custom backends
+- ✅ **Schema validation** - Validate nodes, edges, and referential integrity
 
 ## Installation
 
