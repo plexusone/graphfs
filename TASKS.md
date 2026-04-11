@@ -23,12 +23,14 @@ Git-friendly filesystem graph database.
 - [x] CHANGELOG (structured JSON + Markdown)
 - [x] GitHub Actions CI workflows
 
-## Phase 3 - Query & Analysis (Current)
+## Phase 3 - Query & Analysis (In Progress)
 
-- [ ] Basic graph traversal (BFS, DFS)
-- [ ] Path finding between nodes
+- [x] Basic graph traversal (BFS, DFS) - `pkg/query/traverse.go`
+- [x] Path finding between nodes - `Traverser.FindPath()`
 - [ ] Cycle detection (find cycles in graph)
-- [ ] Semantic diff: show added/removed nodes/edges
+- [x] Semantic diff: show added/removed nodes/edges - `pkg/analyze/diff.go`
+- [x] Hub detection (highly connected nodes) - `pkg/analyze/gods.go`
+- [x] Community detection (Louvain algorithm) - `pkg/analyze/louvain.go`
 - [ ] CLI: `graphfs query <node-id>`
 - [ ] CLI: `graphfs diff <path1> <path2>`
 
