@@ -34,6 +34,8 @@ Git-friendly filesystem graph database with one-file-per-entity storage for mini
 - 🎯 **Confidence levels** - Support for EXTRACTED (AST), INFERRED (LLM), and AMBIGUOUS relationships
 - 🔌 **Pluggable storage** - `Store` interface for custom backends
 - ✅ **Schema validation** - Validate nodes, edges, and referential integrity
+- 🔍 **Graph traversal** - BFS, DFS, and path finding algorithms
+- 📊 **Graph analysis** - Hub detection, community detection (Louvain), graph diff
 
 ## Installation
 
@@ -104,6 +106,47 @@ errs := validator.ValidateGraph(g)
 for _, err := range errs {
     fmt.Printf("Error: %v\n", err)
 }
+```
+
+### Graph Traversal
+
+```go
+import "github.com/plexusone/graphfs/pkg/query"
+
+// Create a traverser from a graph
+traverser := query.NewTraverser(g)
+
+// BFS traversal from a node
+result := traverser.BFS("func_main", query.Outgoing, 3, nil)
+fmt.Printf("Visited %d nodes\n", len(result.Visited))
+
+// Find path between nodes
+path := traverser.FindPath("func_main", "func_helper", nil)
+fmt.Printf("Path: %v\n", path.Visited)
+
+// DFS with edge type filter
+result = traverser.DFS("func_main", query.Both, 5, []string{"calls"})
+```
+
+### Graph Analysis
+
+```go
+import "github.com/plexusone/graphfs/pkg/analyze"
+
+// Find hub nodes (most connected)
+hubs := analyze.FindHubs(nodes, edges, 10, []string{"package", "file"})
+for _, hub := range hubs {
+    fmt.Printf("%s: %d connections\n", hub.Label, hub.Total)
+}
+
+// Detect communities using Louvain algorithm
+result := analyze.DetectCommunities(nodes, edges)
+fmt.Printf("Found %d communities, modularity: %.3f\n",
+    len(result.Communities), result.Modularity)
+
+// Compare two graph snapshots
+diff := analyze.DiffGraphs(oldNodes, newNodes, oldEdges, newEdges)
+fmt.Printf("Changes: %s\n", diff.Summary)
 ```
 
 ## Storage Format

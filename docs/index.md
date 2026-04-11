@@ -18,6 +18,8 @@ GraphFS is a Go library for storing and querying graph data using the filesystem
 - **Confidence levels** - Support for EXTRACTED (AST), INFERRED (LLM), and AMBIGUOUS relationships
 - **Pluggable storage** - `Store` interface for custom backends
 - **Schema validation** - Validate nodes, edges, and referential integrity
+- **Graph traversal** - BFS, DFS, and path finding algorithms
+- **Graph analysis** - Hub detection, community detection (Louvain), graph diff
 
 ## Quick Example
 

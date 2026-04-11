@@ -250,3 +250,167 @@ Structured validation error with field name and message.
 
 - `from` node must exist in graph
 - `to` node must exist in graph
+
+---
+
+## Package `query`
+
+Graph traversal algorithms.
+
+### Traverser
+
+```go
+type Traverser struct {
+    // private fields
+}
+
+func NewTraverser(g *graph.Graph) *Traverser
+func NewTraverserFromEdges(edges []*graph.Edge, nodes map[string]*graph.Node) *Traverser
+```
+
+Creates a traverser for graph exploration.
+
+### Direction
+
+```go
+type Direction int
+
+const (
+    Outgoing Direction = iota  // Follow edges from source to target
+    Incoming                   // Follow edges from target to source
+    Both                       // Follow edges in both directions
+)
+```
+
+### TraversalResult
+
+```go
+type TraversalResult struct {
+    StartNode string              // Node where traversal began
+    Visited   []string            // Visited node IDs in order
+    Edges     []*graph.Edge       // Traversed edges
+    Depth     map[string]int      // Node ID to depth from start
+    Parents   map[string]*graph.Edge // Node ID to edge that led to it
+}
+```
+
+### Traversal Methods
+
+| Method | Signature | Description |
+|--------|-----------|-------------|
+| `BFS` | `func (t *Traverser) BFS(start string, dir Direction, maxDepth int, edgeTypes []string) *TraversalResult` | Breadth-first search |
+| `DFS` | `func (t *Traverser) DFS(start string, dir Direction, maxDepth int, edgeTypes []string) *TraversalResult` | Depth-first search |
+| `FindPath` | `func (t *Traverser) FindPath(from, to string, edgeTypes []string) *TraversalResult` | Find shortest path |
+
+**Parameters:**
+
+| Parameter | Description |
+|-----------|-------------|
+| `start` | Starting node ID |
+| `dir` | Traversal direction (Outgoing, Incoming, Both) |
+| `maxDepth` | Maximum traversal depth (0 = default 100) |
+| `edgeTypes` | Filter by edge types (nil = all types) |
+
+---
+
+## Package `analyze`
+
+Graph analysis algorithms.
+
+### Hub Detection
+
+```go
+type HubNode struct {
+    ID        string
+    Label     string
+    Type      string
+    InDegree  int
+    OutDegree int
+    Total     int
+}
+
+func FindHubs(nodes []*graph.Node, edges []*graph.Edge, topN int, excludeTypes []string) []HubNode
+func IsolatedNodes(nodes []*graph.Node, edges []*graph.Edge, threshold int, excludeTypes []string) []*graph.Node
+```
+
+| Function | Description |
+|----------|-------------|
+| `FindHubs` | Returns top N most connected nodes |
+| `IsolatedNodes` | Returns nodes with degree <= threshold |
+
+### Community Detection
+
+```go
+type Community struct {
+    ID       int
+    Size     int
+    Cohesion float64
+    Members  []string
+    Label    string
+}
+
+type ClusterResult struct {
+    Communities   []Community
+    NodeCommunity map[string]int
+    Modularity    float64
+}
+
+func DetectCommunities(nodes []*graph.Node, edges []*graph.Edge) *ClusterResult
+func DetectCommunitiesWithOptions(nodes []*graph.Node, edges []*graph.Edge, opts ClusterOptions) *ClusterResult
+```
+
+Uses the Louvain algorithm for modularity optimization.
+
+### ClusterOptions
+
+```go
+type ClusterOptions struct {
+    Algorithm        ClusterAlgorithm  // "louvain" or "components"
+    Resolution       float64           // Higher = smaller communities (default 1.0)
+    ExcludeEdgeTypes []string          // Edge types to ignore
+    ExcludeNodeTypes []string          // Node types to ignore
+}
+
+func DefaultClusterOptions() ClusterOptions
+```
+
+### Graph Diff
+
+```go
+type GraphDiff struct {
+    NewNodes     []NodeChange
+    RemovedNodes []NodeChange
+    NewEdges     []EdgeChange
+    RemovedEdges []EdgeChange
+    Summary      string
+}
+
+type NodeChange struct {
+    ID    string
+    Label string
+    Type  string
+}
+
+type EdgeChange struct {
+    From       string
+    To         string
+    Type       string
+    Confidence string
+}
+
+func DiffGraphs(oldNodes, newNodes []*graph.Node, oldEdges, newEdges []*graph.Edge) *GraphDiff
+```
+
+Compares two graph snapshots and returns changes.
+
+### Utility Functions
+
+| Function | Signature | Description |
+|----------|-----------|-------------|
+| `NodesByType` | `func NodesByType(nodes []*graph.Node) map[string][]*graph.Node` | Group nodes by type |
+| `EdgesByType` | `func EdgesByType(edges []*graph.Edge) map[string][]*graph.Edge` | Group edges by type |
+| `EdgesByConfidence` | `func EdgesByConfidence(edges []*graph.Edge) map[graph.Confidence][]*graph.Edge` | Group edges by confidence |
+| `CohesionScore` | `func CohesionScore(members []string, adj map[string]map[string]bool) float64` | Calculate community density |
+| `HubScore` | `func HubScore(nodeID string, edges []*graph.Edge) int` | Calculate out-degree |
+| `AuthorityScore` | `func AuthorityScore(nodeID string, edges []*graph.Edge) int` | Calculate in-degree |
+| `InferredEdges` | `func InferredEdges(edges []*graph.Edge) []*graph.Edge` | Get INFERRED/AMBIGUOUS edges |
