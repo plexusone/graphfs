@@ -2,15 +2,15 @@
 
 Git-friendly filesystem graph database.
 
-## Phase 1 - MVP (Current)
+## Phase 1 - MVP (Complete)
 
 - [x] Core types: Node, Edge, Graph
 - [x] Filesystem store: one file per entity (full CRUD)
 - [x] Deterministic JSON serialization (sorted keys)
 - [x] Schema validation (ValidateNode, ValidateEdge, ValidateGraph)
-- [ ] Unit tests for all packages
-- [ ] CLI: `graphfs validate <path>`
-- [ ] CLI: `graphfs format <path>`
+- [x] Unit tests for all packages (40 tests)
+- [x] CLI: `graphfs validate <path>`
+- [x] CLI: `graphfs format <path>`
 
 ## Phase 2 - Enhanced Validation
 
