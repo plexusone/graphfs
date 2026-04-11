@@ -7,23 +7,39 @@
   "releases": [
     {
       "version": "v0.1.0",
-      "date": "2026-04-09",
+      "date": "2026-04-11",
       "highlights": [
         { "description": "Git-friendly graph database with one-file-per-entity storage for minimal diffs" },
         { "description": "Edge confidence system supporting EXTRACTED, INFERRED, and AMBIGUOUS relationships" }
       ],
       "added": [
-        { "description": "`graph.Node` type with ID, Type, Label, and extensible Attrs map" },
-        { "description": "`graph.Edge` type with From, To, Type, Confidence, ConfidenceScore, and Attrs" },
-        { "description": "`graph.Graph` type with in-memory node/edge collections and CRUD operations" },
-        { "description": "`graph.Confidence` enum: EXTRACTED (AST-derived), INFERRED (LLM), AMBIGUOUS (uncertain)" },
-        { "description": "Edge type constants: calls, imports, implements, extends, uses, contains, depends_on, references" },
-        { "description": "`store.FSStore` for filesystem-backed persistence with `nodes/` and `edges/` directories" },
-        { "description": "`store.Store` interface for pluggable storage backends" },
-        { "description": "One-file-per-entity storage: `nodes/{id}.json` and `edges/{from}--{type}-->{to}.json`" },
-        { "description": "`format.MarshalCanonical` and `UnmarshalCanonical` for deterministic JSON output" },
-        { "description": "Graph operations: `SaveGraph`, `ListNodes`, `ListEdges`, `GetNode`, `GetEdge`" },
-        { "description": "`schema.Validate` for validating graph structure" }
+        { "description": "`graph.Node` type with ID, Type, Label, and extensible Attrs map", "commit": "06f5b1f" },
+        { "description": "`graph.Edge` type with From, To, Type, Confidence, ConfidenceScore, and Attrs", "commit": "06f5b1f" },
+        { "description": "`graph.Graph` type with in-memory node/edge collections and CRUD operations", "commit": "06f5b1f" },
+        { "description": "`graph.Confidence` enum: EXTRACTED (AST-derived), INFERRED (LLM), AMBIGUOUS (uncertain)", "commit": "06f5b1f" },
+        { "description": "Node type constants: function, method, class, struct, file, package, module, variable, constant, interface", "commit": "06f5b1f" },
+        { "description": "Edge type constants: calls, imports, implements, extends, uses, contains, depends_on, references", "commit": "06f5b1f" },
+        { "description": "`format.MarshalCanonical` for deterministic JSON output with sorted keys", "commit": "8fa733a" },
+        { "description": "`format.UnmarshalCanonical` for standard JSON unmarshaling", "commit": "8fa733a" },
+        { "description": "`schema.Validator` with configurable validation rules", "commit": "37225c4" },
+        { "description": "`schema.ValidateNode` for node ID, type, and label validation", "commit": "37225c4" },
+        { "description": "`schema.ValidateEdge` for edge endpoint, type, and confidence validation", "commit": "37225c4" },
+        { "description": "`schema.ValidateEdgeRefs` for referential integrity checks", "commit": "37225c4" },
+        { "description": "`schema.ValidateGraph` for full graph validation with error collection", "commit": "37225c4" },
+        { "description": "`store.Store` interface for pluggable storage backends", "commit": "c3c727d" },
+        { "description": "`store.FSStore` for filesystem-backed persistence", "commit": "c3c727d" },
+        { "description": "One-file-per-entity storage: `nodes/{id}.json` and `edges/{from}__{type}__{to}.json`", "commit": "c3c727d" },
+        { "description": "Full CRUD operations: WriteNode, WriteEdge, GetNode, GetEdge, DeleteNode, DeleteEdge", "commit": "c3c727d" },
+        { "description": "Batch operations: ListNodes, ListEdges, LoadGraph, SaveGraph", "commit": "c3c727d" }
+      ],
+      "documentation": [
+        { "description": "CHANGELOG.md with v0.1.0 release notes", "commit": "dbcb8f6" },
+        { "description": "TASKS.md with phase-based development roadmap", "commit": "dbcb8f6" }
+      ],
+      "infrastructure": [
+        { "description": "Go module definition (go 1.24)", "commit": "ca4c2fd" },
+        { "description": "GitHub Actions CI workflows", "commit": "4cd92d1" },
+        { "description": "MIT License", "commit": "88d89dd" }
       ]
     }
   ]
