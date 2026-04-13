@@ -2,26 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://plexusone.github.io/graphfs/</loc>
-         <lastmod>2026-04-11</lastmod>
+         <lastmod>2026-04-13</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/graphfs/api-reference/</loc>
-         <lastmod>2026-04-11</lastmod>
+         <lastmod>2026-04-13</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/graphfs/getting-started/</loc>
-         <lastmod>2026-04-11</lastmod>
+         <lastmod>2026-04-13</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/graphfs/storage-format/</loc>
-         <lastmod>2026-04-11</lastmod>
+         <lastmod>2026-04-13</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/graphfs/releases/changelog/</loc>
-         <lastmod>2026-04-11</lastmod>
+         <lastmod>2026-04-13</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/graphfs/releases/v0.1.0/</loc>
-         <lastmod>2026-04-11</lastmod>
+         <lastmod>2026-04-13</lastmod>
+    </url>
+    <url>
+         <loc>https://plexusone.github.io/graphfs/releases/v0.2.0/</loc>
+         <lastmod>2026-04-13</lastmod>
     </url>
 </urlset>
