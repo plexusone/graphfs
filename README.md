@@ -220,6 +220,12 @@ Each edge file contains:
 | `EdgeTypeContains` | `contains` |
 | `EdgeTypeDependsOn` | `depends_on` |
 | `EdgeTypeReferences` | `references` |
+| `EdgeTypeInjects` | `injects` |
+| `EdgeTypeHandlesRoute` | `handles_route` |
+| `EdgeTypeHasMany` | `has_many` |
+| `EdgeTypeBelongsTo` | `belongs_to` |
+| `EdgeTypeAnnotatedWith` | `annotated_with` |
+| `EdgeTypeMethodOf` | `method_of` |
 
 ## Confidence Levels
 

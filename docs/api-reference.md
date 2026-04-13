@@ -103,6 +103,7 @@ const (
 
 ```go
 const (
+    // Core edge types
     EdgeTypeCalls      = "calls"
     EdgeTypeImports    = "imports"
     EdgeTypeImplements = "implements"
@@ -111,6 +112,14 @@ const (
     EdgeTypeContains   = "contains"
     EdgeTypeDependsOn  = "depends_on"
     EdgeTypeReferences = "references"
+
+    // Framework-specific edge types
+    EdgeTypeInjects       = "injects"        // Dependency injection
+    EdgeTypeHandlesRoute  = "handles_route"  // HTTP route handling
+    EdgeTypeHasMany       = "has_many"       // One-to-many (JPA @OneToMany)
+    EdgeTypeBelongsTo     = "belongs_to"     // Many-to-one (JPA @ManyToOne)
+    EdgeTypeAnnotatedWith = "annotated_with" // Annotation relationships
+    EdgeTypeMethodOf      = "method_of"      // Method belonging to class/struct
 )
 ```
 
