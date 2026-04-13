@@ -50,4 +50,24 @@ const (
 	EdgeTypeContains   = "contains"
 	EdgeTypeDependsOn  = "depends_on"
 	EdgeTypeReferences = "references"
+
+	// Framework-specific edge types
+
+	// EdgeTypeInjects represents dependency injection (Spring @Autowired, etc.)
+	EdgeTypeInjects = "injects"
+
+	// EdgeTypeHandlesRoute represents a controller method handling an HTTP route.
+	EdgeTypeHandlesRoute = "handles_route"
+
+	// EdgeTypeHasMany represents a one-to-many relationship (JPA @OneToMany).
+	EdgeTypeHasMany = "has_many"
+
+	// EdgeTypeBelongsTo represents a many-to-one relationship (JPA @ManyToOne).
+	EdgeTypeBelongsTo = "belongs_to"
+
+	// EdgeTypeAnnotatedWith represents a class/method annotated with a specific annotation.
+	EdgeTypeAnnotatedWith = "annotated_with"
+
+	// EdgeTypeMethodOf represents a method belonging to a class/struct (non-containment).
+	EdgeTypeMethodOf = "method_of"
 )
